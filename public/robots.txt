@@ -1,0 +1,3 @@
+# stagecraft.ing: a static, spec-governed site. No tracking, no crawl traps.
+User-agent: *
+Allow: /

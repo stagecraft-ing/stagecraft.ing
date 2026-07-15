@@ -4,6 +4,13 @@ npm-debug.log*
 *.tsbuildinfo
 dist
 
+# React Router v7 build output + generated types
+/build/
+/.react-router/
+
+# Baked registry payload (regenerated at build time from the public repos)
+/public/data/
+
 # Rust
 target/
 **/*.rs.bk

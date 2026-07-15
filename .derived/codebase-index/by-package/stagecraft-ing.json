@@ -1,0 +1,9 @@
+{
+  "package": {
+    "kind": "npm-package",
+    "name": "stagecraft-ing",
+    "path": ""
+  },
+  "schemaVersion": "1.1.0",
+  "shardHash": "6d1c8392a8d1d98ca723542d04780476c5faf043204703d79f42cb41a229beee"
+}

@@ -1,52 +1,45 @@
 {
-  "diagnostics": {
-    "errors": [],
-    "warnings": [
-      {
-        "code": "W-001",
-        "message": "spec '001-site-scaffold' file unit 'package.json' does not exist",
-        "path": "package.json"
-      },
-      {
-        "code": "W-001",
-        "message": "spec '001-site-scaffold' file unit 'react-router.config.ts' does not exist",
-        "path": "react-router.config.ts"
-      },
-      {
-        "code": "W-001",
-        "message": "spec '001-site-scaffold' file unit 'vite.config.ts' does not exist",
-        "path": "vite.config.ts"
-      },
-      {
-        "code": "W-001",
-        "message": "spec '001-site-scaffold' directory unit 'app/' is not a directory",
-        "path": "app/"
-      },
-      {
-        "code": "W-001",
-        "message": "spec '001-site-scaffold' directory unit 'public/' is not a directory",
-        "path": "public/"
-      },
-      {
-        "code": "W-001",
-        "message": "spec '001-site-scaffold' directory unit 'scripts/' is not a directory",
-        "path": "scripts/"
-      },
-      {
-        "code": "W-001",
-        "message": "spec '001-site-scaffold' file unit '.github/workflows/deploy.yml' does not exist",
-        "path": ".github/workflows/deploy.yml"
-      }
-    ]
-  },
   "mapping": {
     "dependsOn": [
       "000-bootstrap"
     ],
-    "implementingPaths": [],
+    "implementingPaths": [
+      {
+        "path": ".github/workflows/deploy.yml",
+        "source": "spec-edge"
+      },
+      {
+        "path": "app/",
+        "source": "spec-edge"
+      },
+      {
+        "path": "package.json",
+        "source": "spec-edge"
+      },
+      {
+        "path": "public/",
+        "source": "spec-edge"
+      },
+      {
+        "path": "react-router.config.ts",
+        "source": "spec-edge"
+      },
+      {
+        "path": "scripts/",
+        "source": "spec-edge"
+      },
+      {
+        "path": "vite.config.ts",
+        "source": "spec-edge"
+      }
+    ],
     "resolvedUnits": [
       {
-        "locations": [],
+        "locations": [
+          {
+            "file": "app/"
+          }
+        ],
         "ownership": true,
         "sourceField": "establishes",
         "unit": {
@@ -55,7 +48,11 @@
         }
       },
       {
-        "locations": [],
+        "locations": [
+          {
+            "file": "public/"
+          }
+        ],
         "ownership": true,
         "sourceField": "establishes",
         "unit": {
@@ -64,7 +61,11 @@
         }
       },
       {
-        "locations": [],
+        "locations": [
+          {
+            "file": "scripts/"
+          }
+        ],
         "ownership": true,
         "sourceField": "establishes",
         "unit": {
@@ -73,7 +74,11 @@
         }
       },
       {
-        "locations": [],
+        "locations": [
+          {
+            "file": ".github/workflows/deploy.yml"
+          }
+        ],
         "ownership": true,
         "sourceField": "establishes",
         "unit": {
@@ -82,7 +87,11 @@
         }
       },
       {
-        "locations": [],
+        "locations": [
+          {
+            "file": "package.json"
+          }
+        ],
         "ownership": true,
         "sourceField": "establishes",
         "unit": {
@@ -91,7 +100,11 @@
         }
       },
       {
-        "locations": [],
+        "locations": [
+          {
+            "file": "react-router.config.ts"
+          }
+        ],
         "ownership": true,
         "sourceField": "establishes",
         "unit": {
@@ -100,7 +113,11 @@
         }
       },
       {
-        "locations": [],
+        "locations": [
+          {
+            "file": "vite.config.ts"
+          }
+        ],
         "ownership": true,
         "sourceField": "establishes",
         "unit": {
@@ -113,5 +130,5 @@
     "specStatus": "approved"
   },
   "schemaVersion": "1.1.0",
-  "shardHash": "db45d34a457c37facfe2b46de20c4e1cc0f414d33f1c74889d6fe85597d7a639"
+  "shardHash": "3189cccb30160ebbd1b9f4ef0e14128776c22ea22dd4fd4a406179c774d38683"
 }

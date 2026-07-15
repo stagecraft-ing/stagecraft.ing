@@ -3,7 +3,7 @@ id: "001-site-scaffold"
 title: "stagecraft.ing: React Router v7 static site, Pages deploy, apex cutover"
 status: approved
 created: "2026-07-14"
-implementation: pending
+implementation: in-progress
 depends_on:
   - "000-bootstrap"
 establishes:
@@ -59,11 +59,23 @@ and report.
 - **Registry viewer, static edition**: a build step
   (`scripts/bake-registry.mjs`) fetches the public repos'
   `.derived/spec-registry/by-spec/*.json` shards (enrahitu,
-  stagecraft, stagecraft-cli, stagecraft.ing; raw.githubusercontent
-  at build time only) into `public/data/`, and the viewer routes
-  render from those baked JSON files. The bake step records each
-  repo's commit SHA into the payload so the viewer can display "as
-  of". Build fails loudly if a fetch fails; no silent partial bakes.
+  stagecraft, stagecraft-cli, stagecraft.ing) into `public/data/`,
+  and the viewer routes render from that baked payload. Enumeration
+  amendment (2026-07-14): raw.githubusercontent cannot list a
+  directory, so the bake uses the GitHub REST API
+  (`api.github.com`) at build time to (a) list each repo's
+  `.derived/spec-registry/by-spec` contents and (b) read the
+  commit SHA + date of the last commit that touched that path (the
+  "as of" stamp), then fetches each shard body from
+  raw.githubusercontent. Both hosts are contacted at build time
+  only; the emitted site makes no runtime request to either. The
+  bake records each repo's SHA + as-of date into the payload so the
+  viewer can display "as of". Build fails loudly if any fetch or
+  parse fails; no silent partial bakes. The baked payload lives at
+  `public/data/registry.json`; the prerender step and the viewer
+  loaders read it from disk at build time, so it is embedded in the
+  prerendered HTML/`.data` (and also served as a same-origin static
+  asset).
 - **Structure**: base layout (wordmark, repo links, footer with
   license notes), index (content per spec 002), `/registry` (the
   viewer), `/docs` (markdown content collection with one placeholder
@@ -74,6 +86,13 @@ and report.
   github-pages). Pages is ALREADY ENABLED on this repo with
   build_type=workflow (done 2026-07-14); no operator action needed for
   the default URL (https://stagecraft-ing.github.io/stagecraft.ing/).
+  Base-path amendment (2026-07-14): because `public/CNAME` ships in
+  the build (the apex is the authorized canonical home), the site is
+  built at base path `/` (apex root), not the `/stagecraft.ing/`
+  project sub-path. GitHub Pages redirects the default
+  `*.github.io/stagecraft.ing/` URL to the apex once the custom
+  domain is verified; the two cutover steps below run in the same
+  session as the first deploy so that window stays short.
 - **Apex cutover (authorized 2026-07-14)**: the legacy control plane
   currently behind stagecraft.ing is abandoned; after the FIRST
   successful Pages deploy, complete the cutover in this order:
@@ -109,3 +128,28 @@ and report.
 - Blog, search, versioned docs, OG image generation.
 - Any server-side rendering at runtime, forms, or API calls.
 - Migrating the legacy plane's other routes; the domain simply moves.
+
+## 6. Status (2026-07-14)
+
+Scaffold implemented and verified locally; `implementation` stays
+`in-progress` until the deploy and apex cutover hold (backlog step 5).
+
+Green locally: `npm ci`, `npm run build` (bakes 39 shards from the four
+public repos and prerenders every route into a static `build/client`),
+`npm run dev` (serves the layout, the index placeholder, `/registry`
+over real baked shards, and the docs placeholder), `npm run typecheck`,
+and the spine gates (`compile`, `index`, `lint --fail-on-warn`,
+`index check`, `couple`). The built output loads no off-origin resource
+(system fonts, registry data baked in, no analytics, no webfont CDN).
+
+Remaining before `implementation: complete` (external state, not yet
+performed because each is an outward-facing action on live infra):
+- First Pages deploy: pushing to main runs
+  `.github/workflows/deploy.yml`; confirm it is green and the artifact
+  publishes.
+- Apex cutover (§3): set the Pages custom domain, repoint Cloudflare
+  DNS, then verify `https://stagecraft.ing` serves with a valid
+  certificate. Record the cutover date here via amendment when done.
+- Live console + network check against the deployed site (the local
+  Chrome bridge was unavailable this session; the built output was
+  verified statically to make zero off-origin requests).

@@ -1,0 +1,38 @@
+import type { Config } from "@react-router/dev/config";
+import { readFileSync } from "node:fs";
+import path from "node:path";
+
+// Static site, framework mode. `ssr: false` means no runtime server; every
+// route is prerendered to HTML at build time (loaders run in Node during the
+// build). The apex (stagecraft.ing) is the canonical home, so the site is
+// built at base path "/" (see vite.config.ts) and CNAME ships in public/.
+
+// Enumerate the dynamic registry detail routes from the baked payload so the
+// prerenderer emits one static page per governed spec across all repos. The
+// bake step (npm run bake:registry) writes this file before the build runs;
+// if it is somehow absent, the index still prerenders and detail pages are
+// simply skipped rather than failing the whole build.
+function registryDetailPaths(): string[] {
+  const dataPath = path.join(process.cwd(), "public", "data", "registry.json");
+  try {
+    const data = JSON.parse(readFileSync(dataPath, "utf8")) as {
+      repos?: Array<{ repo: string; specs?: Array<{ id: string }> }>;
+    };
+    const paths: string[] = [];
+    for (const repo of data.repos ?? []) {
+      for (const spec of repo.specs ?? []) {
+        paths.push(`/registry/${repo.repo}/${spec.id}`);
+      }
+    }
+    return paths;
+  } catch {
+    return [];
+  }
+}
+
+export default {
+  ssr: false,
+  async prerender() {
+    return ["/", "/registry", "/docs", ...registryDetailPaths()];
+  },
+} satisfies Config;
