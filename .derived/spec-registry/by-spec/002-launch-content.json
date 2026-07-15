@@ -40,9 +40,9 @@
     ],
     "specPath": "specs/002-launch-content/spec.md",
     "status": "approved",
-    "summary": "The words on the site at launch. One index page that states what Stagecraft is in the builder's own register (creator-led, OSS-credible, no startup theater), a product-family section mapping the four repos and their licenses, and an honest status section tied to the public milestone ladder. The positioning facts are inlined here so the implementing session needs no external archive.\n",
+    "summary": "The words on the site at launch. One index page that states what Stagecraft is in the builder's own register (creator-led, OSS-credible, no startup theater), a product-family section presenting the roster owned by spec 003, and an honest status section tied to the public milestone ladder. The positioning facts are inlined here so the implementing session needs no external archive.\n",
     "title": "Launch content: positioning, product family, honest status"
   },
-  "shardHash": "f36fb21c54684c5b6c72484889ad5cfcc6f660be6962d8e1fb62625012f8aaf1",
+  "shardHash": "69cf21c7547a8181c8c517b14673b7776e8e5379a8075a849ea9165a370a9bff",
   "specVersion": "1.1.0"
 }

@@ -15,9 +15,9 @@ establishes:
 summary: >
   The words on the site at launch. One index page that states what
   Stagecraft is in the builder's own register (creator-led,
-  OSS-credible, no startup theater), a product-family section mapping
-  the four repos and their licenses, and an honest status section tied
-  to the public milestone ladder. The positioning facts are inlined
+  OSS-credible, no startup theater), a product-family section
+  presenting the roster owned by spec 003, and an honest status section
+  tied to the public milestone ladder. The positioning facts are inlined
   here so the implementing session needs no external archive.
 ---
 
@@ -72,20 +72,17 @@ reads naturally (a single creator builds this in the open).
   posture), Operate (one container + one volume per app; update and
   backup as governed verbs), Verify (tamper-evident attestation
   ledger; independent verifier exists).
-- **Product family table**: stagecraft (control plane, AGPL-3.0),
-  enrahitu (template chassis, Apache-2.0), stagecraft-cli (CLI + MCP
-  server, Apache-2.0), spec-spine (governance toolchain, its own
-  repo), and (added 2026-07-15) six more public repos, all Apache-2.0:
-  the vended tenant tools tenant-emit (the certificate emitter) and
-  tenant-tail (the certificate verifier), plus the extracted primitives
-  action-gate (the deterministic decision gate), attest-ledger (the
-  tamper-evident record ledger), canonical-keysort-json (canonical JSON
-  at the hash boundary), and trust-window (the rolling-window trust
-  scorer). Each row: one-line role + repo link + license, and the note
-  that stamped apps belong to their owners. Like spec-spine, these
-  repos appear in this family list but are not baked into the
-  `/registry` viewer: §1 (spec 001) leaves the bake set unchanged, so
-  they are named and linked, not rendered as spec corpora.
+- **Product family table**: the index renders the product family as a
+  list, each row a one-line role + repo link + SPDX license, with the
+  note that stamped apps belong to their owners. The roster itself
+  (which repos, and their roles and licenses) is owned by spec 003 §3
+  and encoded once in `app/lib/product-family.ts`; this section governs
+  how that roster is presented, not what it contains, so it does not
+  restate it. The family list is broader than the `/registry` bake set:
+  repos outside the baked set (spec 001 §3) are named and linked here,
+  not rendered as spec corpora, and spec 001 leaves that bake set
+  unchanged. (Roster enumeration trimmed 2026-07-15 to defer to spec
+  003 §3, its owner.)
 - **For agents**: a short section stating the MCP face: coding agents
   operate under the same governance as humans (same verbs, same
   guards, explicit posture, no side doors).
