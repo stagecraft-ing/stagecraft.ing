@@ -75,8 +75,14 @@ reads naturally (a single creator builds this in the open).
 - **Product family table**: stagecraft (control plane, AGPL-3.0),
   enrahitu (template chassis, Apache-2.0), stagecraft-cli (CLI + MCP
   server, Apache-2.0), spec-spine (governance toolchain, its own
-  repo). Each row: one-line role + repo link + license, and the note
-  that stamped apps belong to their owners.
+  repo), and (added 2026-07-15) the two vended tenant tools
+  tenant-emit (the certificate emitter) and tenant-tail (the
+  certificate verifier), both Apache-2.0. Each row: one-line role +
+  repo link + license, and the note that stamped apps belong to their
+  owners. Like spec-spine, the tenant tools appear in this family list
+  but are not baked into the `/registry` viewer: §1 (spec 001) leaves
+  the bake set unchanged, so they are named and linked, not rendered as
+  spec corpora.
 - **For agents**: a short section stating the MCP face: coding agents
   operate under the same governance as humans (same verbs, same
   guards, explicit posture, no side doors).

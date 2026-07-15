@@ -49,6 +49,20 @@ export const REPO_META: Record<string, RepoMeta> = {
     role: "the spec-governance toolchain everything above is governed by",
     url: `${ORG_URL}/spec-spine`,
   },
+  "tenant-emit": {
+    repo: "tenant-emit",
+    name: "tenant-emit",
+    license: "Apache-2.0",
+    role: "the tenant certificate emitter: signs a produced app's governance certificate",
+    url: `${ORG_URL}/tenant-emit`,
+  },
+  "tenant-tail": {
+    repo: "tenant-tail",
+    name: "tenant-tail",
+    license: "Apache-2.0",
+    role: "the tenant certificate verifier: re-checks the factory's paperwork, no trust in the producer",
+    url: `${ORG_URL}/tenant-tail`,
+  },
   "stagecraft.ing": {
     repo: "stagecraft.ing",
     name: "stagecraft.ing",
@@ -58,12 +72,14 @@ export const REPO_META: Record<string, RepoMeta> = {
   },
 };
 
-// The four repos shown as the product family in the footer (README order).
+// The repos shown as the product family in the footer (README order).
 export const PRODUCT_FAMILY: RepoMeta[] = [
   REPO_META["stagecraft"],
   REPO_META["enrahitu"],
   REPO_META["stagecraft-cli"],
   REPO_META["spec-spine"],
+  REPO_META["tenant-emit"],
+  REPO_META["tenant-tail"],
 ];
 
 export function repoMeta(repo: string): RepoMeta | undefined {

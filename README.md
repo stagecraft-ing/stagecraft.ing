@@ -11,6 +11,11 @@ the governed agentic delivery control plane, and its product family:
   CLI + MCP server (Apache-2.0)
 - [spec-spine](https://github.com/stagecraft-ing/spec-spine): the
   spec-governance toolchain everything above is governed by
+- [tenant-emit](https://github.com/stagecraft-ing/tenant-emit): the tenant
+  certificate emitter, signing a produced app's governance certificate (Apache-2.0)
+- [tenant-tail](https://github.com/stagecraft-ing/tenant-tail): the tenant
+  certificate verifier, re-checking the factory's paperwork with no trust in
+  the producer (Apache-2.0)
 
 Site content and stack land here later; this placeholder marks the repo's
 role (the dotted-name convention: this repo is the website).
