@@ -29,17 +29,17 @@ extends:
       - "react-router.config.ts"
       - "app/components/site-chrome.tsx"
 summary: >
-  Restores the richer marketing experience the OAP-era stagecraft web app
+  Restores the richer marketing experience the OAP-era statecraft web app
   carried, ported onto the static apex: a products/architecture page, a
   papers index with a full whitepaper reader (sticky TOC, reading-progress,
   scroll-spy, inline references) and an interactive clickable-SVG
   architecture explorer, and a get-started walkthrough. It expands the site
   chrome (Products, Papers, Get Started in the nav) and adds a sign-in link
   that hands off to the control plane's Rauthy OIDC flow at
-  app.stagecraft.ing/auth/rauthy. All content is re-authored to be truthful
+  app.statecraft.ing/auth/rauthy. All content is re-authored to be truthful
   and checkable against the current public repos (no fabricated hashes,
   spec counts, signatures, or dead subsystems): the OAP name becomes
-  Stagecraft, and factory-encore / template-encore become enrahitu. The
+  Statecraft, and factory-encore / template-encore become enrahitu. The
   site stays fully static and prerendered, with zero runtime off-origin
   requests; sign-in is a plain outbound link, not an auth flow this site
   runs.
@@ -50,7 +50,7 @@ summary: >
 ## 1. Purpose
 
 The launch site (specs 001-002) is honest but sparse: an index, a
-registry viewer, and three docs stubs. The OAP-era stagecraft web app
+registry viewer, and three docs stubs. The OAP-era statecraft web app
 carried a much richer public experience: a products/architecture page, a
 governed whitepaper with an in-page reader and interactive diagrams, and a
 self-host walkthrough. That work is worth harvesting. This spec brings the
@@ -66,11 +66,11 @@ Two constraints shape the port, and neither is negotiable:
   OWASP ASI "full coverage" compliance table, and subsystems that no longer
   exist (deployd-api, axiomregent, OPC Desktop, oap-bootstrap). None of that
   is ported. The narrative is re-authored around the real product family
-  (spec 003): spec-spine, enrahitu, stagecraft, stagecraft-cli, tenant-emit,
+  (spec 003): spec-spine, enrahitu, statecraft, statecraft-cli, tenant-emit,
   tenant-tail, action-gate, attest-ledger, canonical-keysort-json,
   trust-window, and the live Rauthy identity service.
 - **The rename is total.** "Open Agentic Platform" / "OAP" becomes
-  "Stagecraft"; `factory-encore` and `template-encore` become `enrahitu`
+  "Statecraft"; `factory-encore` and `template-encore` become `enrahitu`
   (the template chassis that replaced both). No harvested string may leave
   a dead product name in place.
 
@@ -103,7 +103,7 @@ the header (and the mobile drawer), rendered by `sign-in-link.tsx`.
 
 ### 3.2 Sign-in
 
-Sign-in is an outbound link to `https://app.stagecraft.ing/auth/rauthy`:
+Sign-in is an outbound link to `https://app.statecraft.ing/auth/rauthy`:
 the same `/auth/rauthy` OIDC kickoff path the app used before the apex
 cutover, now on the control-plane host (the static apex no longer serves
 it). This site runs no auth flow, sets no cookie, and reads no session; it
@@ -127,7 +127,7 @@ unless it is derived from the baked registry.
 
 ### 3.4 Papers and the whitepaper reader (`/papers`, `/papers/:slug`)
 
-The papers index features one flagship whitepaper, "The Stagecraft
+The papers index features one flagship whitepaper, "The Statecraft
 Ecosystem", re-authored from the harvested paper to describe the real
 family. The reader (`paper-reader.tsx`) renders it with a sticky table of
 contents, a reading-progress bar, scroll-spy section highlighting, inline
@@ -168,7 +168,7 @@ unchanged.
   and `/get-started` into static HTML; `npm run typecheck` is clean.
 - The header and mobile nav expose Products, Papers, Get Started, and a
   Sign in link; the Sign in link resolves to
-  `https://app.stagecraft.ing/auth/rauthy`.
+  `https://app.statecraft.ing/auth/rauthy`.
 - The whitepaper reader renders the flagship paper with a working TOC,
   reading-progress, references, and at least one interactive architecture
   diagram.
@@ -201,11 +201,11 @@ Implemented and verified; section 4 holds end to end.
 
 - **Surfaces**: `/products` (layers, a registry-derived delivery flow, the
   spec-003 repo catalog), `/papers` plus the whitepaper reader at
-  `/papers/stagecraft-ecosystem` (sticky TOC, reading-progress, scroll-spy,
+  `/papers/statecraft-ecosystem` (sticky TOC, reading-progress, scroll-spy,
   inline references, a positioning table, three interactive architecture
   explorers), and `/get-started` (runs-today vs on-the-ladder, every step
   linked to its governing spec). Chrome gained Products, Papers, Get Started,
-  and a Sign in link to `https://app.stagecraft.ing/auth/rauthy`.
+  and a Sign in link to `https://app.statecraft.ing/auth/rauthy`.
 - **Honesty**: content re-authored around the real family; no fabricated
   hash, signature, spec count, or dead subsystem in any user-facing surface.
   Maturity is rolled up from the baked registry wherever it is shown (the
@@ -213,7 +213,7 @@ Implemented and verified; section 4 holds end to end.
   Stamp in progress, Operate shipped, Verify shipped), so the copy cannot
   drift from the specs. The stamp and self-host steps link to genuinely
   in-progress specs (`enrahitu/009-template-contract`,
-  `stagecraft/009-control-plane-deploy`).
+  `statecraft/009-control-plane-deploy`).
 - **Gates**: `npm run typecheck` clean; `npm run build` prerenders every new
   route; `spec-spine compile`, `index`, `lint --fail-on-warn`, `index check`
   green; `spec-spine couple --base origin/main` reports 17 paths checked, no
@@ -223,5 +223,5 @@ Implemented and verified; section 4 holds end to end.
 
 Deploy is gated by human approval: main auto-deploys to the live apex, so
 the change ships in PR #6 and awaits merge. Sign-in is a real hand-off once
-`app.stagecraft.ing` is deployed with a valid certificate; until then the
+`app.statecraft.ing` is deployed with a valid certificate; until then the
 link reaches the control-plane host's own (in-progress) state.

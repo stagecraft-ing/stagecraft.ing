@@ -11,7 +11,7 @@ import { PaperReader } from "~/components/paper-reader";
 export function meta({ params }: Route.MetaArgs): Route.MetaDescriptors {
   const paper = params.slug ? getReaderPaper(params.slug) : undefined;
   return [
-    { title: paper ? `${paper.title}: Stagecraft` : "Paper: Stagecraft" },
+    { title: paper ? `${paper.title}: Statecraft` : "Paper: Statecraft" },
     {
       name: "description",
       content: paper ? paper.subtitle : "A governed publication.",

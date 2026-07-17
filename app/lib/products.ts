@@ -28,9 +28,9 @@ export interface ArchLayer {
 // Repos whose spec corpora are baked into /registry (spec 001 section 3 bake
 // set, minus this site). The page links these to their registry corpus.
 export const BAKED_REPOS = new Set<string>([
-  "stagecraft",
+  "statecraft",
   "enrahitu",
-  "stagecraft-cli",
+  "statecraft-cli",
 ]);
 
 // The architecture as layers. Every repo in the family appears in exactly one
@@ -59,7 +59,7 @@ export const ARCHITECTURE_LAYERS: ArchLayer[] = [
     icon: "control-plane",
     blurb:
       "The governed loop itself: specify, stamp, operate, verify. This is the layer the status ladder tracks as it lands.",
-    repos: ["stagecraft"],
+    repos: ["statecraft"],
   },
   {
     id: "interface",
@@ -67,7 +67,7 @@ export const ARCHITECTURE_LAYERS: ArchLayer[] = [
     icon: "interface",
     blurb:
       "How people and agents drive the plane: a CLI and an MCP server exposing the same governed verbs, so an agent passes through the controls a person does.",
-    repos: ["stagecraft-cli"],
+    repos: ["statecraft-cli"],
   },
   {
     id: "verification",
@@ -105,8 +105,8 @@ export interface FlowStep {
 export const DELIVERY_FLOW: FlowStep[] = [
   { verb: "Specify", tool: "spec-spine", detail: "intent compiles to a typed, hash-verifiable spec; drift is gated in CI" },
   { verb: "Stamp", tool: "enrahitu + template contract", detail: "a contract stamps a complete app from the chassis, born with a certificate", ref: { repo: "enrahitu", id: "009-template-contract" } },
-  { verb: "Operate", tool: "the fleet", detail: "one container, one volume; update and backup are governed verbs with an audit trail", ref: { repo: "stagecraft", id: "006-fleet" } },
-  { verb: "Verify", tool: "attest-ledger + tenant-tail", detail: "the run is recorded in a signed ledger and re-checked by an independent verifier", ref: { repo: "stagecraft", id: "008-governance-attestation" } },
+  { verb: "Operate", tool: "the fleet", detail: "one container, one volume; update and backup are governed verbs with an audit trail", ref: { repo: "statecraft", id: "006-fleet" } },
+  { verb: "Verify", tool: "attest-ledger + tenant-tail", detail: "the run is recorded in a signed ledger and re-checked by an independent verifier", ref: { repo: "statecraft", id: "008-governance-attestation" } },
 ];
 
 export interface ProductDetail {
@@ -117,7 +117,7 @@ export interface ProductDetail {
 // Short, checkable framing per repo. Highlights describe what the repo is, not
 // how mature it is; nothing here asserts a count, a status, or a benchmark.
 export const PRODUCT_DETAIL: Record<string, ProductDetail> = {
-  stagecraft: {
+  statecraft: {
     blurb:
       "The governed delivery control plane: the loop that turns intent into an operated, verifiable application.",
     highlights: [
@@ -135,7 +135,7 @@ export const PRODUCT_DETAIL: Record<string, ProductDetail> = {
       "The substrate for the factory's stamp",
     ],
   },
-  "stagecraft-cli": {
+  "statecraft-cli": {
     blurb:
       "The command line and MCP server: the same governed verbs for people and for coding agents.",
     highlights: [

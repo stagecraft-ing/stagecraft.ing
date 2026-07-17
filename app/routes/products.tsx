@@ -34,11 +34,11 @@ import {
 
 export function meta(_: Route.MetaArgs): Route.MetaDescriptors {
   return [
-    { title: "Products & architecture: Stagecraft" },
+    { title: "Products & architecture: Statecraft" },
     {
       name: "description",
       content:
-        "The Stagecraft family as layers: a governance toolchain, a runnable substrate, the control plane, the interface, and the verification primitives. Ten open repos, one governed stack.",
+        "The Statecraft family as layers: a governance toolchain, a runnable substrate, the control plane, the interface, and the verification primitives. Ten open repos, one governed stack.",
     },
   ];
 }

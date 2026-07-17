@@ -41,7 +41,7 @@ export const TODAY_STEPS: Step[] = [
     title: "Run the enrahitu substrate",
     body:
       "enrahitu is the EnRaHiTu template chassis a stamped app is born from, and it is runnable on its own: Encore.ts, rauthy, hiqlite, and Turso in a single container with zero managed dependencies. Clone it and follow its README to bring the container up.",
-    command: "git clone https://github.com/stagecraft-ing/enrahitu",
+    command: "git clone https://github.com/statecrafting/enrahitu",
     repo: "enrahitu",
     spec: { repo: "enrahitu", id: "007-single-container-packaging" },
   },
@@ -62,9 +62,9 @@ export const PLANNED_STEPS: Step[] = [
     id: "self-host",
     title: "Self-host the control plane",
     body:
-      "Stagecraft, the control plane, is AGPL-3.0 and designed to be self-hostable. Standing up a self-hosted plane is itself an in-progress milestone; the home page status ladder rolls up exactly how far it has come, straight from the specs. The self-host path will be documented here when it ships.",
-    repo: "stagecraft",
-    spec: { repo: "stagecraft", id: "009-control-plane-deploy" },
+      "Statecraft, the control plane, is AGPL-3.0 and designed to be self-hostable. Standing up a self-hosted plane is itself an in-progress milestone; the home page status ladder rolls up exactly how far it has come, straight from the specs. The self-host path will be documented here when it ships.",
+    repo: "statecraft",
+    spec: { repo: "statecraft", id: "009-control-plane-deploy" },
   },
 ];
 

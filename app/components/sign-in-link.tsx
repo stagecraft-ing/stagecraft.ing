@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 // /auth/rauthy path the app used before the apex cutover, now on the app host.
 // A plain absolute URL so it renders identically in prerendered HTML with no
 // client JavaScript, and so middle-click / cmd-click behave.
-export const SIGN_IN_URL = "https://app.stagecraft.ing/auth/rauthy";
+export const SIGN_IN_URL = "https://app.statecraft.ing/auth/rauthy";
 
 export function SignInLink({
   className,

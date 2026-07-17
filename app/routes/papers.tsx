@@ -9,11 +9,11 @@ import { ArrowRight, Clock, FileText } from "~/components/icons";
 
 export function meta(_: Route.MetaArgs): Route.MetaDescriptors {
   return [
-    { title: "Papers: Stagecraft" },
+    { title: "Papers: Statecraft" },
     {
       name: "description",
       content:
-        "The Stagecraft whitepaper: how a governed agentic delivery control plane is built in the open, with an in-page reader and interactive architecture diagrams.",
+        "The Statecraft whitepaper: how a governed agentic delivery control plane is built in the open, with an in-page reader and interactive architecture diagrams.",
     },
   ];
 }

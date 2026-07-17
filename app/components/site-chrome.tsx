@@ -41,7 +41,7 @@ function Wordmark() {
     <Link to="/" className="group flex items-center gap-2">
       <Logo className="h-5 w-5 text-primary transition-all group-hover:text-glow" />
       <span className="font-mono text-sm font-bold tracking-tight">
-        Stagecraft
+        Statecraft
       </span>
     </Link>
   );

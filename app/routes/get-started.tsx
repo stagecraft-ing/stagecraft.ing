@@ -16,7 +16,7 @@ import { ArrowRight, ExternalLink, ShieldCheck, Terminal } from "~/components/ic
 
 export function meta(_: Route.MetaArgs): Route.MetaDescriptors {
   return [
-    { title: "Get started: Stagecraft" },
+    { title: "Get started: Statecraft" },
     {
       name: "description",
       content:
@@ -92,7 +92,7 @@ export default function GetStarted() {
         Run what ships. Watch what is landing.
       </h1>
       <p className="mb-8 leading-relaxed text-muted-foreground">
-        Stagecraft is built in the open, one milestone at a time. Two things run
+        Statecraft is built in the open, one milestone at a time. Two things run
         today on their own: the governance toolchain and the substrate. The
         control plane that ties them into one loop is landing rung by rung, and
         every step below links to the spec that governs it.

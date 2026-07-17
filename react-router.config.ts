@@ -6,7 +6,7 @@ import { readerPapers } from "./app/lib/papers";
 
 // Static site, framework mode. `ssr: false` means no runtime server; every
 // route is prerendered to HTML at build time (loaders run in Node during the
-// build). The apex (stagecraft.ing) is the canonical home, so the site is
+// build). The apex (statecraft.ing) is the canonical home, so the site is
 // built at base path "/" (see vite.config.ts) and CNAME ships in public/.
 
 // Enumerate the dynamic registry detail routes from the baked payload so the
